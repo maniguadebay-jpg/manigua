@@ -5,7 +5,7 @@ import { ensureSeeded } from "@/db/seed";
 import { getSelectOptions } from "@/lib/admin-handlers";
 import { getSessionUser } from "@/lib/auth";
 import { AdminNav } from "@/components/admin/admin-nav";
-import { QuickTrackForm } from "@/components/admin/quick-track-form";
+import { QuickTrackForm } from "../../../components/admin/quick-track-form";
 
 export const dynamic = "force-dynamic";
 

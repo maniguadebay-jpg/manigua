@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 
 export async function GET() {
   const user = await getSessionUser();
-  if (!user) return NextResponse.json({ error: "Authentification requise." }, { status: 401 });
+  if (!user) return NextResponse?.json({ error: "Authentification requise." }, { status: 401 });
   const options = await getSelectOptions();
-  return NextResponse.json(options);
+  return NextResponse?.json(options);
 }

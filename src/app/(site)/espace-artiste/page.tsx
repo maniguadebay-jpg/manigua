@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { Section, SectionHeading } from "@/components/section";
 import { Reveal } from "@/components/reveal";
-import { LogoCalabash } from "@/components/brand-hero";
+import { LogoCalabash } from "../../../components/brand-hero";
 import {
   ArrowRightIcon,
   ClockIcon,

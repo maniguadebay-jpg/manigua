@@ -1,8 +1,8 @@
 import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 import { ensureSeeded, fanCredentials } from "@/db/seed";
-import { getProfile } from "@/lib/auth";
-import { FanForm } from "@/components/account/fan-form";
+import { getProfile } from "../../../lib/auth";
+import { FanForm } from "../../../components/account/fan-form";
 
 export const dynamic = "force-dynamic";
 

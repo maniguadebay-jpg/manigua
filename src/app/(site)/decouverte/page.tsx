@@ -31,11 +31,7 @@ export default async function DecouvertePage({ searchParams }: Props) {
 
   const genreSlug = params.genre ?? "";
   const sort = (SORTS.find((s) => s.value === params.tri)?.value ?? "trending") as
-    | "trending"
-    | "plays"
-    | "recent"
-    | "likes"
-    | "az";
+    | "trending" |"plays" |"recent" |"likes" |"az";
   const q = params.q ?? "";
 
   const [genreRows, tracks, genreArtists] = await Promise.all([
@@ -118,8 +114,7 @@ export default async function DecouvertePage({ searchParams }: Props) {
               href={buildHref({ genre: "" })}
               className={`shrink-0 rounded-full border px-4 py-2 font-heading text-[12px] font-bold uppercase tracking-[0.14em] transition ${
                 !activeGenre
-                  ? "border-mango-500 bg-mango-500/15 text-mango-400"
-                  : "border-white/12 text-cream-dim hover:border-white/30 hover:text-cream"
+                  ? "border-mango-500 bg-mango-500/15 text-mango-400" :"border-white/12 text-cream-dim hover:border-white/30 hover:text-cream"
               }`}
             >
               Tous les genres
@@ -130,8 +125,7 @@ export default async function DecouvertePage({ searchParams }: Props) {
                 href={buildHref({ genre: genre.slug })}
                 className={`flex shrink-0 items-center gap-2 rounded-full border px-4 py-2 font-heading text-[12px] font-bold uppercase tracking-[0.14em] transition ${
                   activeGenre?.slug === genre.slug
-                    ? "border-mango-500 bg-mango-500/15 text-mango-400"
-                    : "border-white/12 text-cream-dim hover:border-white/30 hover:text-cream"
+                    ? "border-mango-500 bg-mango-500/15 text-mango-400" :"border-white/12 text-cream-dim hover:border-white/30 hover:text-cream"
                 }`}
               >
                 <span>{genre.emoji}</span>
