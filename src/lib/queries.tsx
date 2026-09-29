@@ -1,4 +1,4 @@
-export function getArticleBySlug(...args) {
+export function getArticleBySlug(...args: any[]): any {
   // eslint-disable-next-line no-console
   console.warn('Placeholder: getArticleBySlug is not implemented yet.', args);
   return null;
@@ -123,3 +123,10 @@ function getVideoBySlug(...args: any[]): any {
 }
 
 export { getVideoBySlug };
+function listFavorites(...args: any[]): any {
+  // eslint-disable-next-line no-console
+  console.warn('Placeholder: listFavorites is not implemented yet.', args);
+  return null;
+}
+
+export { listFavorites };

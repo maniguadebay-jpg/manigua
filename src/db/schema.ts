@@ -12,3 +12,11 @@ export const videos = {} as any;
 export const articles = {} as any;
 export const banners = {} as any;
 export const newsletterSignups = {} as any;
+
+function contactMessages(...args: any[]): any {
+  // eslint-disable-next-line no-console
+  console.warn('Placeholder: contactMessages is not implemented yet.', args);
+  return null;
+}
+
+export { contactMessages };

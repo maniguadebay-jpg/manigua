@@ -275,3 +275,16 @@ const QueueIcon: React.FC = () => {
 };
 
 export { QueueIcon };
+const ArrowUpRightIcon: React.FC = () => {
+  React.useEffect(() => {
+    // eslint-disable-next-line no-console
+    console.warn('Placeholder: ArrowUpRightIcon is not implemented yet.');
+  }, []);
+  return (
+    <div>
+      {/* ArrowUpRightIcon placeholder */}
+    </div>
+  );
+};
+
+export { ArrowUpRightIcon };

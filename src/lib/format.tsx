@@ -32,3 +32,10 @@ function formatFullNumber(...args: any[]): any {
 }
 
 export { formatFullNumber };
+function timeAgo(...args: any[]): any {
+  // eslint-disable-next-line no-console
+  console.warn('Placeholder: timeAgo is not implemented yet.', args);
+  return null;
+}
+
+export { timeAgo };

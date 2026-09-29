@@ -37,10 +37,10 @@ export default async function ArticlePage({ params }: Props) {
   const article = await getArticleBySlug(slug);
   if (!article) notFound();
 
-  const related = (await listArticles({ limit: 6 })).filter((item) => item.slug !== article.slug).slice(0, 3);
+  const related = ((await listArticles({ limit: 6 })) ?? []).filter((item: any) => item.slug !== article.slug).slice(0, 3);
   const paragraphs = article.content
     .split(/\n{1,}/)
-    .map((block) => block.trim())
+    .map((block: string) => block.trim())
     .filter(Boolean);
 
   const jsonLd = {

@@ -1,7 +1,7 @@
 export function ensureSeeded(...args) {
   // eslint-disable-next-line no-console
   console.warn('Placeholder: ensureSeeded is not implemented yet.', args);
-  return null;
+  return Promise.resolve(null);
 }
 
 function fanCredentials(...args: any[]): any {
