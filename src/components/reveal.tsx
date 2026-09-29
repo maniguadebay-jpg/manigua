@@ -1,16 +1,16 @@
 'use client';
-import React, { useEffect } from 'react';
+import React from 'react';
 
-const Reveal = () => {
-  React.useEffect(() => {
-    // eslint-disable-next-line no-console
-    console.warn('Placeholder: Reveal is not implemented yet.');
-  }, []);
+interface RevealProps {
+  children?: React.ReactNode;
+  delay?: number;
+  className?: string;
+}
+
+export const Reveal: React.FC<RevealProps> = ({ children, className }) => {
   return (
-    <>
-  { /*Reveal */} 
- </>
+    <div className={className}>
+      {children}
+    </div>
   );
 };
-
-export { Reveal };

@@ -1,16 +1,11 @@
 'use client';
-import React, { useEffect } from 'react';
+import React from 'react';
 
-const CountUp = () => {
-  React.useEffect(() => {
-    // eslint-disable-next-line no-console
-    console.warn('Placeholder: CountUp is not implemented yet.');
-  }, []);
-  return (
-    <>
-  { /*CountUp */} 
- </>
-  );
+interface CountUpProps {
+  value: number;
+  className?: string;
+}
+
+export const CountUp: React.FC<CountUpProps> = ({ value }) => {
+  return <span>{value}</span>;
 };
-
-export { CountUp };

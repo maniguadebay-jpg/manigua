@@ -1,16 +1,17 @@
 'use client';
-import React, { useEffect } from 'react';
+import React from 'react';
 
-const Ticker = () => {
-  React.useEffect(() => {
-    // eslint-disable-next-line no-console
-    console.warn('Placeholder: Ticker is not implemented yet.');
-  }, []);
+interface TickerProps {
+  items: React.ReactNode[];
+  className?: string;
+}
+
+export const Ticker: React.FC<TickerProps> = ({ items, className }) => {
   return (
-    <>
-  { /*Ticker */} 
- </>
+    <div className={`flex items-center gap-0 overflow-hidden ${className ?? ''}`}>
+      <div className="flex animate-none items-center">
+        {items}
+      </div>
+    </div>
   );
 };
-
-export { Ticker };

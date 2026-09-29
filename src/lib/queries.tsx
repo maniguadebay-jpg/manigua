@@ -4,17 +4,17 @@ export function getArticleBySlug(...args: any[]): any {
   return null;
 }
 
-function listArticles(...args: any[]): any {
+function listArticles(...args: any[]): Promise<any[]> {
   // eslint-disable-next-line no-console
   console.warn('Placeholder: listArticles is not implemented yet.', args);
-  return null;
+  return Promise.resolve([]);
 }
 
 export { listArticles };
-function listArticleCategories(...args: any[]): any {
+function listArticleCategories(...args: any[]): Promise<any[]> {
   // eslint-disable-next-line no-console
   console.warn('Placeholder: listArticleCategories is not implemented yet.', args);
-  return null;
+  return Promise.resolve([]);
 }
 
 export { listArticleCategories };
@@ -25,17 +25,17 @@ function getAlbumBySlug(...args: any[]): any {
 }
 
 export { getAlbumBySlug };
-function listAlbums(...args: any[]): any {
+function listAlbums(...args: any[]): Promise<any[]> {
   // eslint-disable-next-line no-console
   console.warn('Placeholder: listAlbums is not implemented yet.', args);
-  return null;
+  return Promise.resolve([]);
 }
 
 export { listAlbums };
-function listTracks(...args: any[]): any {
+function listTracks(...args: any[]): Promise<any[]> {
   // eslint-disable-next-line no-console
   console.warn('Placeholder: listTracks is not implemented yet.', args);
-  return null;
+  return Promise.resolve([]);
 }
 
 export { listTracks };
@@ -46,31 +46,31 @@ function getArtistBySlug(...args: any[]): any {
 }
 
 export { getArtistBySlug };
-function getArtistTotalPlays(...args: any[]): any {
+function getArtistTotalPlays(...args: any[]): Promise<number> {
   // eslint-disable-next-line no-console
   console.warn('Placeholder: getArtistTotalPlays is not implemented yet.', args);
-  return null;
+  return Promise.resolve(0);
 }
 
 export { getArtistTotalPlays };
-function listArtists(...args: any[]): any {
+function listArtists(...args: any[]): Promise<any[]> {
   // eslint-disable-next-line no-console
   console.warn('Placeholder: listArtists is not implemented yet.', args);
-  return null;
+  return Promise.resolve([]);
 }
 
 export { listArtists };
-function listVideos(...args: any[]): any {
+function listVideos(...args: any[]): Promise<any[]> {
   // eslint-disable-next-line no-console
   console.warn('Placeholder: listVideos is not implemented yet.', args);
-  return null;
+  return Promise.resolve([]);
 }
 
 export { listVideos };
-function listGenres(...args: any[]): any {
+function listGenres(...args: any[]): Promise<any[]> {
   // eslint-disable-next-line no-console
   console.warn('Placeholder: listGenres is not implemented yet.', args);
-  return null;
+  return Promise.resolve([]);
 }
 
 export { listGenres };
@@ -81,24 +81,24 @@ function getTrackBySlug(...args: any[]): any {
 }
 
 export { getTrackBySlug };
-function getSiteStats(...args: any[]): any {
+function getSiteStats(...args: any[]): Promise<{ tracks: number; artists: number; videos: number; plays: number }> {
   // eslint-disable-next-line no-console
   console.warn('Placeholder: getSiteStats is not implemented yet.', args);
-  return null;
+  return Promise.resolve({ tracks: 0, artists: 0, videos: 0, plays: 0 });
 }
 
 export { getSiteStats };
-function listBanners(...args: any[]): any {
+function listBanners(...args: any[]): Promise<any[]> {
   // eslint-disable-next-line no-console
   console.warn('Placeholder: listBanners is not implemented yet.', args);
-  return null;
+  return Promise.resolve([]);
 }
 
 export { listBanners };
-function listPlaylists(...args: any[]): any {
+function listPlaylists(...args: any[]): Promise<any[]> {
   // eslint-disable-next-line no-console
   console.warn('Placeholder: listPlaylists is not implemented yet.', args);
-  return null;
+  return Promise.resolve([]);
 }
 
 export { listPlaylists };
@@ -109,10 +109,10 @@ function getPlaylistBySlug(...args: any[]): any {
 }
 
 export { getPlaylistBySlug };
-function searchAll(...args: any[]): any {
+function searchAll(...args: any[]): Promise<any[]> {
   // eslint-disable-next-line no-console
   console.warn('Placeholder: searchAll is not implemented yet.', args);
-  return null;
+  return Promise.resolve([]);
 }
 
 export { searchAll };
@@ -123,10 +123,10 @@ function getVideoBySlug(...args: any[]): any {
 }
 
 export { getVideoBySlug };
-function listFavorites(...args: any[]): any {
+function listFavorites(...args: any[]): Promise<any[]> {
   // eslint-disable-next-line no-console
   console.warn('Placeholder: listFavorites is not implemented yet.', args);
-  return null;
+  return Promise.resolve([]);
 }
 
 export { listFavorites };
