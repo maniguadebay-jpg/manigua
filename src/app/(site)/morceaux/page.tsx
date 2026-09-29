@@ -33,11 +33,7 @@ export default async function MorceauxPage({ searchParams }: Props) {
   await ensureSeeded().catch(() => false);
 
   const sort = (SORTS.find((s) => s.value === params.tri)?.value ?? "plays") as
-    | "plays"
-    | "recent"
-    | "likes"
-    | "az"
-    | "trending";
+    | "plays" |"recent" |"likes" |"az" |"trending";
   const page = Math.max(1, Number(params.page ?? "1") || 1);
   const genre = params.genre ?? "";
   const artiste = params.artiste ?? "";
@@ -136,8 +132,7 @@ export default async function MorceauxPage({ searchParams }: Props) {
                 href={buildHref({ genre: item.slug, page: "" })}
                 className={`shrink-0 rounded-full border px-4 py-2 text-[12px] font-bold uppercase tracking-[0.14em] transition ${
                   genre === item.slug
-                    ? "border-mango-500 bg-mango-500/15 text-mango-400"
-                    : "border-white/12 text-cream-dim hover:text-cream"
+                    ? "border-mango-500 bg-mango-500/15 text-mango-400" :"border-white/12 text-cream-dim hover:text-cream"
                 }`}
               >
                 {item.emoji} {item.name}
@@ -194,8 +189,7 @@ export default async function MorceauxPage({ searchParams }: Props) {
                   href={buildHref({ page: value })}
                   className={`h-10 w-10 rounded-full border text-center font-display text-sm leading-[2.4rem] transition ${
                     value === currentPage
-                      ? "border-mango-500 bg-mango-500/15 text-mango-400"
-                      : "border-white/12 text-cream-dim hover:border-white/30 hover:text-cream"
+                      ? "border-mango-500 bg-mango-500/15 text-mango-400" :"border-white/12 text-cream-dim hover:border-white/30 hover:text-cream"
                   }`}
                 >
                   {value}

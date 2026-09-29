@@ -1,10 +1,10 @@
 import type { ReactNode } from "react";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
-import { AudioPlayerProvider } from "@/components/AudioPlayer";
-import AudioPlayer from "@/components/AudioPlayer";
-import { FavoritesProvider } from "@/components/favorites-provider";
-import { WhatsAppFloat } from "@/components/whatsapp-float";
+import { SiteHeader } from "../../components/site-header";
+import { SiteFooter } from "../../components/site-footer";
+import { AudioPlayerProvider } from "../../components/AudioPlayer";
+import AudioPlayer from "../../components/AudioPlayer";
+import { FavoritesProvider } from "../../components/favorites-provider";
+import { WhatsAppFloat } from "../../components/whatsapp-float";
 
 export default function SiteLayout({ children }: { children: ReactNode }) {
   return (
