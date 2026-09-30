@@ -31,6 +31,10 @@ export default async function ComptePage() {
     countPlays(owner),
   ]);
 
+  const safeBundle = bundle ?? { tracks: [], artists: [], albums: [], videos: [], articles: [], total: 0 };
+  const safeHistory = history ?? [];
+  const safePlayStats = playStats ?? { events: 0, seconds: 0 };
+
   const [fullRow] = await db.select().from(profiles).where(eq(profiles.id, profile.id)).limit(1);
   const fullProfile = {
     ...profile,
@@ -39,7 +43,7 @@ export default async function ComptePage() {
   };
 
   const favoritesSection =
-    bundle.tracks.length === 0 ? (
+    safeBundle.tracks.length === 0 ? (
       <p className="rounded-2xl border border-dashed border-white/12 bg-ink-900/50 px-6 py-14 text-center text-sm text-cream-mute">
         Aucun morceau en favori. Ajoutez un cœur sur un titre pour le retrouver ici.{" "}
         <Link href="/morceaux" className="text-mango-400 underline">
@@ -49,44 +53,38 @@ export default async function ComptePage() {
     ) : (
       <div>
         <div className="mb-4">
-          <PlayAllButton tracks={bundle.tracks} label={`Lire mes ${bundle.tracks.length} favoris`} />
+          <PlayAllButton tracks={safeBundle.tracks} label={`Lire mes ${safeBundle.tracks.length} favoris`} />
         </div>
         <ol className="space-y-0.5">
-          {bundle.tracks.map((track, index) => (
-            <TrackRow key={track.id} track={track} index={index} queue={bundle.tracks} />
+          {safeBundle.tracks.map((track: any, index: number) => (
+            <TrackRow key={track.id} track={track} index={index} queue={safeBundle.tracks} />
           ))}
         </ol>
       </div>
     );
 
   const historySection =
-    history.length === 0 ? (
+    safeHistory.length === 0 ? (
       <p className="rounded-2xl border border-dashed border-white/12 bg-ink-900/50 px-6 py-14 text-center text-sm text-cream-mute">
-        Aucune écoute enregistrée pour le moment. Lancez un morceau : l'historique se construit tout seul.
+        Aucune écoute enregistrée pour le moment. Lancez un morceau : l&apos;historique se construit tout seul.
       </p>
     ) : (
       <div className="grid gap-6 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
         <ol className="divide-y divide-white/5 overflow-hidden rounded-2xl border border-white/10 bg-ink-900/60">
-          {history.map((entry, index) => (
+          {safeHistory.map((entry: any, index: number) => (
             <li key={entry.id} className="group flex items-center gap-4 px-4 py-3 transition hover:bg-white/5">
               <span className="w-6 font-display text-sm text-cream-mute">{String(index + 1).padStart(2, "0")}</span>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={entry.track.coverUrl} alt="" className="h-12 w-12 rounded-lg object-cover" />
+              <img src={entry.track?.coverUrl ?? ''} alt="" className="h-12 w-12 rounded-lg object-cover" />
               <span className="min-w-0 flex-1">
-                <span className="block truncate font-heading text-sm font-bold text-cream">{entry.track.title}</span>
+                <span className="block truncate font-heading text-sm font-bold text-cream">{entry.track?.title}</span>
                 <span className="block truncate text-[12px] text-cream-mute">
-                  {entry.track.artistName} · écouté {timeAgo(entry.playedAt)}
+                  {entry.track?.artistName} · écouté {timeAgo(entry.playedAt)}
                 </span>
               </span>
               <span className="hidden items-center gap-1.5 text-[11px] uppercase tracking-[0.16em] text-cream-mute sm:flex">
-                <ClockIcon width={12} height={12} /> {formatDuration(entry.track.durationSeconds)}
+                <ClockIcon width={12} height={12} /> {formatDuration(entry.track?.durationSeconds)}
               </span>
-              <PlayAllButton
-                tracks={[entry.track, ...history.filter((item) => item.id !== entry.id).map((item) => item.track)]}
-                label=""
-                variant="outline"
-                className="px-3 py-2"
-              />
             </li>
           ))}
         </ol>
@@ -97,10 +95,10 @@ export default async function ComptePage() {
           </h2>
           <dl className="mt-5 space-y-4">
             {[
-              { label: "Lectures enregistrées", value: String(playStats.events) },
-              { label: "Temps d'écoute", value: formatDuration(playStats.seconds) },
-              { label: "Favoris tous types", value: String(bundle.total) },
-              { label: "Titres différents", value: String(new Set(history.map((entry) => entry.track.id)).size) },
+              { label: "Lectures enregistrées", value: String(safePlayStats.events) },
+              { label: "Temps d'écoute", value: formatDuration(safePlayStats.seconds) },
+              { label: "Favoris tous types", value: String(safeBundle.total) },
+              { label: "Titres différents", value: String(new Set(safeHistory.map((entry: any) => entry.track?.id)).size) },
             ].map((item) => (
               <div key={item.label} className="flex items-center justify-between border-b border-white/8 pb-3">
                 <dt className="text-[12px] uppercase tracking-[0.16em] text-cream-mute">{item.label}</dt>
@@ -121,9 +119,9 @@ export default async function ComptePage() {
     <AccountPanel
       profile={fullProfile}
       stats={{
-        favorites: bundle.total,
-        plays: playStats.events,
-        minutes: Math.round(playStats.seconds / 60),
+        favorites: safeBundle.total,
+        plays: safePlayStats.events,
+        minutes: Math.round(safePlayStats.seconds / 60),
       }}
       favoritesSection={favoritesSection}
       historySection={historySection}

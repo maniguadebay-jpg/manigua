@@ -38,7 +38,7 @@ export default async function ArticlePage({ params }: Props) {
   if (!article) notFound();
 
   const related = ((await listArticles({ limit: 6 })) ?? []).filter((item: any) => item.slug !== article.slug).slice(0, 3);
-  const paragraphs = article.content
+  const paragraphs = (article.content as string)
     .split(/\n{1,}/)
     .map((block: string) => block.trim())
     .filter(Boolean);
@@ -102,7 +102,7 @@ export default async function ArticlePage({ params }: Props) {
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_320px]">
           <Reveal>
             <article className="max-w-3xl">
-              {paragraphs.map((paragraph, index) => (
+              {paragraphs.map((paragraph: string, index: number) => (
                 <p
                   key={index}
                   className={`mb-6 leading-relaxed text-cream-dim ${
