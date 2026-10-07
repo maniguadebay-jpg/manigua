@@ -66,7 +66,7 @@ export default async function AdminDashboard() {
     { label: "Articles publiés", value: stats.articles, Icon: NewsIcon, accent: "#60A5FA" },
     { label: "Inscrits newsletter", value: Number(signupCount[0]?.value ?? 0), Icon: QueueIcon, accent: "#F472B6" },
     { label: "Comptes fans", value: Number(fanCount[0]?.value ?? 0), Icon: UserIcon, accent: "#34D399" },
-    { label: "Événements d'écoute", value: Number(playCount[0]?.value ?? 0), Icon: WaveIcon, accent: "#FB923C" },
+    { label: "Événements d\'écoute", value: Number(playCount[0]?.value ?? 0), Icon: WaveIcon, accent: "#FB923C" },
   ];
 
   return (
@@ -284,7 +284,7 @@ export default async function AdminDashboard() {
               {Number(signupCount[0]?.value ?? 0) > 1 ? "s" : ""} depuis le pied de page.
             </p>
             <ul className="mt-4 space-y-2">
-              {signups.map((signup) => (
+              {signups.map((signup: any) => (
                 <li
                   key={signup.id}
                   className="flex items-center justify-between rounded-lg border border-white/8 bg-ink-950/50 px-3 py-2 text-[12px]"

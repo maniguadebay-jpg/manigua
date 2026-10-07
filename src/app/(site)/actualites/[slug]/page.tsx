@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { ensureSeeded } from "@/db/seed";
-import { getArticleBySlug, listArticles } from "@/lib/queries";
-import { Section, SectionHeading } from "@/components/section";
-import { ArticleCard, FavoriteButton } from "@/components/cards";
-import { Reveal } from "@/components/reveal";
-import { ClockIcon, EyeIcon, NewsIcon } from "@/components/icons";
-import { formatCompactNumber, formatDate, readingTime } from "@/lib/format";
+import { ensureSeeded } from "../../../../db/seed";
+import { getArticleBySlug, listArticles } from "../../../../lib/queries";
+import { Section, SectionHeading } from "../../../../components/section";
+import { ArticleCard, FavoriteButton } from "../../../../components/cards";
+import { Reveal } from "../../../../components/reveal";
+import { ClockIcon, EyeIcon, NewsIcon } from "../../../../components/icons";
+import { formatCompactNumber, formatDate, readingTime } from "../../../../lib/format";
 
 export const dynamic = "force-dynamic";
 
@@ -37,10 +37,10 @@ export default async function ArticlePage({ params }: Props) {
   const article = await getArticleBySlug(slug);
   if (!article) notFound();
 
-  const related = (await listArticles({ limit: 6 })).filter((item) => item.slug !== article.slug).slice(0, 3);
-  const paragraphs = article.content
+  const related = ((await listArticles({ limit: 6 })) ?? []).filter((item: any) => item.slug !== article.slug).slice(0, 3);
+  const paragraphs = (article.content as string)
     .split(/\n{1,}/)
-    .map((block) => block.trim())
+    .map((block: string) => block.trim())
     .filter(Boolean);
 
   const jsonLd = {
@@ -102,13 +102,12 @@ export default async function ArticlePage({ params }: Props) {
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_320px]">
           <Reveal>
             <article className="max-w-3xl">
-              {paragraphs.map((paragraph, index) => (
+              {paragraphs.map((paragraph: string, index: number) => (
                 <p
                   key={index}
                   className={`mb-6 leading-relaxed text-cream-dim ${
                     index === 0
-                      ? "border-l-2 border-mango-500 pl-5 font-heading text-xl leading-snug text-cream"
-                      : "text-[15px]"
+                      ? "border-l-2 border-mango-500 pl-5 font-heading text-xl leading-snug text-cream" :"text-[15px]"
                   }`}
                 >
                   {paragraph}

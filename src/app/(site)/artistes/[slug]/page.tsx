@@ -122,7 +122,7 @@ export default async function ArtistPage({ params }: Props) {
                 >
                   Tout le catalogue
                 </Link>
-                {socials.map(({ label, Icon, href }) => (
+                {socials.map(({ label, Icon: SocialIcon, href }) => (
                   <a
                     key={label}
                     href={href}
@@ -132,7 +132,7 @@ export default async function ArtistPage({ params }: Props) {
                     aria-label={label}
                     title={label}
                   >
-                    <Icon width={16} height={16} />
+                    <SocialIcon width={16} height={16} />
                   </a>
                 ))}
               </div>
