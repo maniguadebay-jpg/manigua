@@ -42,8 +42,7 @@ export default async function ActualitesPage({ searchParams }: Props) {
             Actualités <span className="text-mango-500">&</span> potins
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-cream-dim">
-            Le journal du mouvement : chiffres de streaming, sorties de clips, interviews d'artistes et coulisses de
-            l'industrie musicale ouest-africaine. {articleRows.length} articles publiés.
+            Le journal du mouvement : chiffres de streaming, sorties de clips, interviews d'artistes et coulisses de l'industrie musicale ouest-africaine. {articleRows.length} articles publiés.
           </p>
 
           <form method="get" action="/actualites" className="mt-7 flex flex-wrap gap-3">
@@ -78,8 +77,7 @@ export default async function ActualitesPage({ searchParams }: Props) {
                 href={`/actualites?categorie=${encodeURIComponent(category)}`}
                 className={`shrink-0 rounded-full border px-4 py-2 text-[12px] font-bold uppercase tracking-[0.14em] transition ${
                   categorie === category
-                    ? "border-gold-400 bg-gold-400/15 text-gold-300"
-                    : "border-white/12 text-cream-dim hover:text-cream"
+                    ? "border-gold-400 bg-gold-400/15 text-gold-300" :"border-white/12 text-cream-dim hover:text-cream"
                 }`}
               >
                 {category}

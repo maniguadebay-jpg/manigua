@@ -1,9 +1,9 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { ContactForm } from "@/components/contact-form";
+import { ContactForm } from "../../../components/contact-form";
 import { Section, SectionHeading } from "@/components/section";
 import { Reveal } from "@/components/reveal";
-import { InstagramIcon, MapPinIcon, SparkIcon, UserIcon, WaveIcon, YoutubeIcon } from "@/components/icons";
+import { MapPinIcon, SparkIcon, UserIcon, WaveIcon } from "@/components/icons";
 
 export const dynamic = "force-dynamic";
 

@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import type { Metadata } from "next";
-import { ENTITY_CONFIGS } from "@/lib/admin-config";
-import { HANDLERS, getSelectOptions } from "@/lib/admin-handlers";
+import { ENTITY_CONFIGS } from "../../../lib/admin-config";
+import { HANDLERS, getSelectOptions } from "../../../lib/admin-handlers";
 import { getSessionUser } from "@/lib/auth";
 import { ensureSeeded } from "@/db/seed";
-import { AdminNav } from "@/components/admin/admin-nav";
-import { EntityManager, type OptionsMap, type Row } from "@/components/admin/entity-manager";
+import { AdminNav } from "../../../components/admin/admin-nav";
+import { EntityManager, type OptionsMap, type Row } from "../../../components/admin/entity-manager";
 
 export const dynamic = "force-dynamic";
 

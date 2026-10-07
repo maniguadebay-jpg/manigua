@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { ensureSeeded } from "@/db/seed";
 import { listArticles, listArtists } from "@/lib/queries";
 import { Section, SectionHeading, ViewAllLink } from "@/components/section";
-import { ArticleCard, PlayAllButton } from "@/components/cards";
+import { ArticleCard } from "@/components/cards";
 import { Reveal } from "@/components/reveal";
 import { NewsIcon, SparkIcon, MicIcon } from "@/components/icons";
 
@@ -49,7 +49,7 @@ const DOSSIERS = [
 export default async function MagazinePage() {
   await ensureSeeded().catch(() => false);
   const [articles, artists] = await Promise.all([listArticles({ limit: 12 }), listArtists({ limit: 8 })]);
-  const [lead, ...rest] = articles;
+  const [lead, ...rest] = articles ?? [];
 
   return (
     <>

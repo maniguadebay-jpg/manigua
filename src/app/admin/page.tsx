@@ -66,7 +66,7 @@ export default async function AdminDashboard() {
     { label: "Articles publiés", value: stats.articles, Icon: NewsIcon, accent: "#60A5FA" },
     { label: "Inscrits newsletter", value: Number(signupCount[0]?.value ?? 0), Icon: QueueIcon, accent: "#F472B6" },
     { label: "Comptes fans", value: Number(fanCount[0]?.value ?? 0), Icon: UserIcon, accent: "#34D399" },
-    { label: "Événements d'écoute", value: Number(playCount[0]?.value ?? 0), Icon: WaveIcon, accent: "#FB923C" },
+    { label: "Événements d\'écoute", value: Number(playCount[0]?.value ?? 0), Icon: WaveIcon, accent: "#FB923C" },
   ];
 
   return (

@@ -12,10 +12,10 @@ import {
   listTracks,
   listVideos,
 } from "@/lib/queries";
-import { HeroCarousel } from "@/components/hero-carousel";
+import { HeroCarousel } from "../../components/hero-carousel";
 import { BrandHero } from "@/components/brand-hero";
-import { Ticker } from "@/components/ticker";
-import { CountUp } from "@/components/count-up";
+import { Ticker } from "../../components/ticker";
+import { CountUp } from "../../components/count-up";
 import { Reveal } from "@/components/reveal";
 import { Section, SectionHeading, ViewAllLink } from "@/components/section";
 import {
@@ -63,7 +63,7 @@ const ROADMAP = [
       "Espace Artiste : auto-publication des morceaux et clips",
       "Paiement Mobile Money : Wave, Orange Money, MTN MoMo, Moov",
       "Abonnements Premium (jour / semaine / mois) en FCFA",
-      "Tableaux de bord de revenus et d'audience par artiste",
+      "Tableaux de bord de revenus et d\'audience par artiste",
     ],
   },
   {
@@ -74,7 +74,7 @@ const ROADMAP = [
     accent: "#12B877",
     points: [
       "Applications Android & iOS avec mode hors-ligne",
-      "Billetterie d'événements et concerts en direct",
+      "Billetterie d\'événements et concerts en direct",
       "Marketplace (merch, beats) et système de dons aux artistes",
       "Recommandations personnalisées par IA",
     ],
@@ -430,8 +430,7 @@ export default async function HomePage() {
                 <span className="text-mango-500">un écosystème</span>
               </h2>
               <p className="mt-4 max-w-md text-sm leading-relaxed text-cream-dim">
-                Maniguadebaby se construit par étapes : d'abord une vitrine média solide et administrée, puis
-                l'autonomie des artistes et la monétisation Mobile Money, enfin l'écosystème complet avec applications
+                Maniguadebaby se construit par étapes : d'abord une vitrine média solide et administrée, puis l'autonomie des artistes et la monétisation Mobile Money, enfin l'écosystème complet avec applications
                 mobiles, billetterie et marketplace.
               </p>
               <Link
