@@ -11,7 +11,7 @@ import {
   hashPassword,
   verifyPassword,
 } from "@/lib/auth";
-import { createSupabaseUser, verifyCredentials } from "@/lib/supabaseClient";
+import { createSupabaseUser, verifyCredentials } from "../../../../lib/supabaseClient";
 
 export const dynamic = "force-dynamic";
 

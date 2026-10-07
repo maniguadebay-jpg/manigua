@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+/*
+ * Maniguadebaby — système de design
+ * Tokens repris de la charte utilisée par les composants (ink / cream / mango / gold).
+ */
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Fonds */
+  --color-ink-950: #0b0906;
+  --color-ink-900: #12100a;
+  --color-ink-850: #191510;
+  --color-ink-800: #221c13;
+
+  /* Texte */
+  --color-cream: #f7f1e6;
+  --color-cream-dim: #cdc3b4;
+  --color-cream-mute: #918a7d;
+
+  /* Accents chauds (mangue / or) */
+  --color-mango-300: #ffd98a;
+  --color-mango-400: #ffc53d;
+  --color-mango-500: #ff8a2b;
+  --color-mango-600: #ff6a1a;
+
+  --color-gold-300: #f4deab;
+  --color-gold-400: #d9a94c;
+
+  /* Vert baobab (accent secondaire, repris du logo) */
+  --color-baobab-400: #2ed492;
+  --color-baobab-500: #12b877;
+
+  /* Typographie */
+  --font-display: "Anton", "Arial Narrow", system-ui, sans-serif;
+  --font-heading: "Bricolage Grotesque", system-ui, -apple-system, sans-serif;
+  --font-body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Animations */
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-kenburns: kenburns 22s ease-out infinite alternate;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes kenburns {
+  from {
+    transform: scale(1) translateY(0);
+  }
+  to {
+    transform: scale(1.09) translateY(-1.5%);
+  }
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-ink-950);
+    color: var(--color-cream);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: var(--color-mango-500);
+    color: var(--color-ink-950);
+  }
+}
+
+/* Motif cire / pagne utilisé en surimpression */
+.wax-pattern {
+  background-image: repeating-radial-gradient(
+      circle at 15% 25%,
+      rgba(255, 197, 61, 0.16) 0 2px,
+      transparent 2px 26px
+    ),
+    repeating-radial-gradient(circle at 75% 70%, rgba(18, 184, 119, 0.14) 0 2px, transparent 2px 34px),
+    repeating-linear-gradient(45deg, rgba(255, 106, 26, 0.08) 0 1px, transparent 1px 18px);
+}
+
+/* Grain de pellicule */
+.grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}

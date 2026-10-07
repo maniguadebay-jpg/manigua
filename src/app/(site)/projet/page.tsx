@@ -102,7 +102,7 @@ const TABLES = [
   {
     name: "profiles",
     tag: "V1",
-    summary: "Comptes fan / artiste / admin. Le champ role pilote les droits d'accès.",
+    summary: "Comptes fan / artiste / admin. Le champ role pilote les droits d\'accès.",
     columns: [
       ["id", "uuid PK → auth.users"],
       ["email", "citext unique"],
@@ -163,7 +163,7 @@ const TABLES = [
   {
     name: "play_events",
     tag: "V1",
-    summary: "Historique d'écoute : alimente « reprendre la lecture » et le calcul des royalties en V2.",
+    summary: "Historique d\'écoute : alimente « reprendre la lecture » et le calcul des royalties en V2.",
     columns: [
       ["id", "bigserial PK"],
       ["user_id / visitor_id", "uuid · text"],
@@ -240,7 +240,7 @@ const HOSTING = [
 const WEEK_PLAN = [
   { day: "Jour 1", title: "Environnement & base de données", status: "Fait", detail: "Next.js + Drizzle + PostgreSQL opérationnels, 14 tables créées et poussées, script Supabase prêt." },
   { day: "Jour 2", title: "Modèle de données complet", status: "Fait", detail: "profiles, artists, albums, tracks, videos, playlists, articles, banners, favorites, play_events + socle V2." },
-  { day: "Jour 3", title: "Maquette de la page d'accueil", status: "Fait", detail: "Carrousel héro Ken Burns, ticker du Top 10, chart, nouveautés, genres, artistes, clips, actus, feuille de route." },
+  { day: "Jour 3", title: "Maquette de la page d\'accueil", status: "Fait", detail: "Carrousel héro Ken Burns, ticker du Top 10, chart, nouveautés, genres, artistes, clips, actus, feuille de route." },
   { day: "Jour 4", title: "Lecteur audio persistant", status: "Fait", detail: "Barre fixe inter-pages, waveform cliquable, file d'attente, shuffle/repeat, Media Session, reprise après rechargement." },
   { day: "Jour 5", title: "Test de lecture depuis la base", status: "Fait", detail: "24 morceaux réels lus en streaming depuis la table tracks, compteur d'écoutes incrémenté à chaque lecture." },
   { day: "Semaine 2", title: "Back-office & comptes fans", status: "Fait", detail: "CRUD admin sur 8 entités, inscription/connexion fan, favoris synchronisés, historique d'écoute." },
@@ -260,7 +260,7 @@ export default async function ProjetPage() {
     { label: "Tables actives", value: 14, Icon: QueueIcon },
     { label: "Morceaux en base", value: stats.tracks, Icon: DiscIcon },
     { label: "Profils créés", value: Number(profileCount[0]?.value ?? 0), Icon: MicIcon },
-    { label: "Événements d'écoute", value: Number(playCount[0]?.value ?? 0), Icon: SparkIcon },
+    { label: "Événements d\'écoute", value: Number(playCount[0]?.value ?? 0), Icon: SparkIcon },
   ];
 
   return (
@@ -622,9 +622,7 @@ export default async function ProjetPage() {
                 </span>
                 <span
                   className={`shrink-0 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.14em] ${
-                    item.status === "Fait"
-                      ? "bg-baobab-500/15 text-baobab-400"
-                      : "bg-gold-400/15 text-gold-300"
+                    item.status === "Fait" ?"bg-baobab-500/15 text-baobab-400" :"bg-gold-400/15 text-gold-300"
                   }`}
                 >
                   {item.status}

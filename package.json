@@ -6,7 +6,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test:betting": "node scripts/test-betting.mjs",
+    "test": "npm run test:betting"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.117.2",

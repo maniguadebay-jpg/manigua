@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 export async function GET() {
   try {
     await db.execute(sql`select 1`);
-    let seeded: boolean | string = false;
+    let seeded: boolean | string | null = false;
     try {
       seeded = await ensureSeeded();
     } catch (error) {

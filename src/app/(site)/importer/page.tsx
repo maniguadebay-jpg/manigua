@@ -4,7 +4,7 @@ import { join } from "node:path";
 import type { Metadata } from "next";
 import { Section, SectionHeading } from "@/components/section";
 import { Reveal } from "@/components/reveal";
-import { HtmlBlock } from "@/components/external";
+import { HtmlBlock } from "../../../components/external";
 import {
   ArrowRightIcon,
   CompassIcon,
@@ -100,7 +100,7 @@ const METHODS = [
       "Créez le fichier cible, par exemple src/components/external/MonBloc.tsx.",
       "Collez le HTML généré dans un composant <HtmlBlock html={…} css={…} /> (déjà fourni).",
       "Déposez les images exportées dans public/assets/images/ et remplacez les chemins par /assets/images/….",
-      "Réutilisez ensuite le composant dans n'importe quelle page : le lecteur audio continue de jouer.",
+      "Réutilisez ensuite le composant dans n\'importe quelle page : le lecteur audio continue de jouer.",
     ],
   },
 ];
